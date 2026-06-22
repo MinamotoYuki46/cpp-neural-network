@@ -1,0 +1,59 @@
+yukitorch/
+├── CMakeLists.txt
+├── README.md
+├── .gitignore
+├── docs/
+│   ├── Doxyfile
+│   └── mainpage.md
+├── data/
+│   └── iris.csv
+├── include/
+│   └── yt/
+│       ├── core/
+│       │   ├── matrix.hpp
+│       │   ├── random.hpp
+│       │   └── dataset.hpp
+│       ├── layers/
+│       │   ├── layer.hpp
+│       │   ├── linear.hpp
+│       │   ├── relu.hpp
+│       │   └── softmax.hpp
+│       ├── losses/
+│       │   ├── loss.hpp
+│       │   └── cross_entropy.hpp
+│       ├── optim/
+│       │   ├── optimizer.hpp
+│       │   └── sgd.hpp
+│       ├── model/
+│       │   └── sequential.hpp
+│       └── utils/
+│           ├── metrics.hpp
+│           └── one_hot.hpp
+├── src/
+│   ├── core/
+│   │   ├── matrix.cpp
+│   │   ├── random.cpp
+│   │   └── dataset.cpp
+│   ├── layers/
+│   │   ├── linear.cpp
+│   │   ├── relu.cpp
+│   │   └── softmax.cpp
+│   ├── losses/
+│   │   └── cross_entropy.cpp
+│   ├── optim/
+│   │   └── sgd.cpp
+│   ├── model/
+│   │   └── sequential.cpp
+│   └── utils/
+│       ├── metrics.cpp
+│       └── one_hot.cpp
+├── examples/
+│   ├── phase1_matrix.cpp
+│   ├── phase2_operator.cpp
+│   ├── phase3_xor.cpp
+│   └── iris_classification.cpp
+└── tests/
+    ├── test_matrix.cpp
+    ├── test_linear.cpp
+    ├── test_relu.cpp
+    └── test_cross_entropy.cpp

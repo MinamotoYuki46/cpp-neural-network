@@ -1,0 +1,21 @@
+PROJECT_NAME           = "cpp-neural-network"
+PROJECT_BRIEF          = "Neural network from scratch with modern C++23"
+OUTPUT_DIRECTORY       = docs
+
+INPUT                  = include src examples docs/phase.txt docs/plan.txt
+RECURSIVE              = YES
+
+USE_MDFILE_AS_MAINPAGE = docs/phase.txt
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+HAVE_DOT               = YES
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES

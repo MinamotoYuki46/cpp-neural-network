@@ -43,6 +43,9 @@ build/
 Build/
 build-*/
 
+docs/html/
+docs/latex/
+
 # CMake generated files
 CMakeFiles/
 CMakeCache.txt

@@ -1,0 +1,9 @@
+Phase 0  : CMake + Doxygen + struktur project
+Phase 1  : Matrix raw pointer + Rule of Five
+Phase 2  : Operator overloading: +, -, *, scalar, <<
+Phase 3  : Linear, ReLU, Sequential
+Phase 4  : Loss dan optimizer
+Phase 5  : XOR classification
+Phase 6  : Iris dataset classification
+Phase 7  : Template Matrix<T>
+Phase 8  : Mini autograd engine
