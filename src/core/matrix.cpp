@@ -1,8 +1,10 @@
 #include "nn/core/matrix.hpp"
 
 #include <algorithm>
+#include <cstddef>
 #include <stdexcept>
 #include <utility>
+#include <ostream>
 
 namespace nn {
     Matrix::Matrix(std::size_t rows, std::size_t cols)
@@ -70,4 +72,76 @@ namespace nn {
     void Matrix::fill(double value) {
         std::fill(data_, data_ + size(), value);
     }
+
+
+    Matrix Matrix::operator+(const Matrix& rhs) const {
+        if (rows_ != rhs.rows_ || cols_ != rhs.cols_) throw std::invalid_argument("Matrix dimension mismatch for addition");
+
+        Matrix result(rows_, cols_);
+
+        for(std::size_t i = 0; i < size(); ++i) result.data_[i] = data_[i] + rhs.data_[i];
+
+        return result;        
+    }
+
+    Matrix Matrix::operator-(const Matrix& rhs) const {
+        if (rows_ != rhs.rows_ || cols_ != rhs.cols_) throw std::invalid_argument("Matrix dimension mismatch for substraction");
+
+        Matrix result(rows_, cols_);
+
+        for(std::size_t i = 0; i < size(); ++i) result.data_[i] = data_[i] - rhs.data_[i];
+
+        return result;
+    }
+
+    Matrix Matrix::operator*(double scalar) const{
+        Matrix result(rows_, cols_);
+
+        for(std::size_t i = 0; i < size(); ++i) result.data_[i] = data_[i] * scalar;
+
+        return result;
+    }
+
+    Matrix Matrix::operator*(const Matrix& rhs) const {
+        if (cols_ != rhs.rows_) throw std::invalid_argument("Matrix multipilcation shape mismatch");
+
+        Matrix result(rows_, cols_);
+
+        for(std::size_t i = 0; i < rows_; ++i)
+            for(std::size_t j = 0; j < rhs.cols_; ++j){
+                double sum = 0.0;
+                for(std::size_t k = 0; k < cols_; ++k)
+                    sum += (*this)(i, k) * rhs(k, j);
+
+                result(i, j) = sum;
+            }
+        return result;
+    }
+
+
+    Matrix& Matrix::operator+=(const Matrix& rhs) {
+        *this = *this + rhs;
+        return *this;
+    }
+
+    Matrix& Matrix::operator-=(const Matrix& rhs) {
+        *this = *this - rhs;
+        return *this;
+    }
+
+    Matrix& Matrix::operator*=(double scalar) {
+        *this = *this * scalar;
+        return *this;
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Matrix& matrix){
+        for(std::size_t i = 0; i < matrix.rows_; ++i){
+            for(std::size_t j = 0; j < matrix.cols_; ++j){
+                os << matrix(i, j) << ' ';
+            }
+            os << '\n';
+        }
+        return os;
+    }
+    
 }

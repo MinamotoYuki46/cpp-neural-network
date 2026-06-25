@@ -1,0 +1,21 @@
+#include "nn/core/matrix.hpp"
+#include <iostream>
+
+int main() {
+    nn::Matrix a(2, 2);
+    nn::Matrix b(2, 2);
+
+    a(0,0)=1; a(0,1)=2;
+    a(1,0)=3; a(1,1)=4;
+
+    b(0,0)=5; b(0,1)=6;
+    b(1,0)=7; b(1,1)=8;
+
+    auto c = a + b;
+    auto d = a * b;
+
+    std::cout << "A+B:\n" << c;
+    std::cout << "\nA*B:\n" << d;
+    
+    return 0;
+}
