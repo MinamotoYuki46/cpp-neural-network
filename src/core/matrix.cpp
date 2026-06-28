@@ -105,7 +105,7 @@ namespace nn {
     Matrix Matrix::operator*(const Matrix& rhs) const {
         if (cols_ != rhs.rows_) throw std::invalid_argument("Matrix multipilcation shape mismatch");
 
-        Matrix result(rows_, cols_);
+        Matrix result(rows_, rhs.cols_);
 
         for(std::size_t i = 0; i < rows_; ++i)
             for(std::size_t j = 0; j < rhs.cols_; ++j){

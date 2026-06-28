@@ -7,12 +7,15 @@ project(
     LANGUAGES CXX
 )
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(cpp_neural_network
     src/core/matrix.cpp
+    src/layers/linear.cpp
+    src/layers/relu.cpp
 )
 
 target_include_directories(cpp_neural_network PUBLIC
@@ -36,3 +39,6 @@ target_link_libraries(phase1_matrix PRIVATE cpp_neural_network)
 
 add_executable(phase2_operator examples/phase2_operator.cpp)
 target_link_libraries(phase2_operator PRIVATE cpp_neural_network)
+
+add_executable(phase3_layers examples/phase3_layers.cpp)
+target_link_libraries(phase3_layers PRIVATE cpp_neural_network)
