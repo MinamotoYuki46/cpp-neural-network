@@ -16,6 +16,7 @@ add_library(cpp_neural_network
     src/core/matrix.cpp
     src/layers/linear.cpp
     src/layers/relu.cpp
+    src/model/sequential.cpp
 )
 
 target_include_directories(cpp_neural_network PUBLIC
@@ -42,3 +43,6 @@ target_link_libraries(phase2_operator PRIVATE cpp_neural_network)
 
 add_executable(phase3_layers examples/phase3_layers.cpp)
 target_link_libraries(phase3_layers PRIVATE cpp_neural_network)
+
+add_executable(phase4_sequential examples/phase4_sequential.cpp)
+target_link_libraries(phase4_sequential PRIVATE cpp_neural_network)
